@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>GPT-Neo Chatbot</title>
+  </head>
+  <body>
+    <h1>Welcome to the GPT-Neo chatbot!</h1>
+    <form method="POST" action="/qa">
+      <label for="question">Enter your question:</label>
+      <input type="text" id="question" name="question">
+      <button type="submit">Ask</button>
+    </form>
+    {% if answer %}
+      <p>{{ answer }}</p>
+    {% endif %}
+  </body>
+</html>
+
+
