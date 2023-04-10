@@ -13,6 +13,8 @@ The `/qa` route uses the `POST` method to receive a user's question and return a
 The function `stop_server` uses the`zmq package` to listen for a stop signal to gracefully shutdown the Flask app.
 
 Finally, the stop_thread is started as a background thread to listen for the stop signal. The Flask app is run on port `5000` with debug mode enabled.
+## HTML template
+This file is under templates/pages. The template contains a form with a text input field for users to enter their questions, and a submit button to send the question to the server. The form's action attribute is set to "/qa", indicating that the form data should be submitted to the server's "/qa" route. The template also includes a conditional statement to display the answer returned by the server if it exists. If the answer variable is not null, a paragraph element will be created with the answer text. The template's title, header, and labels provide clear instructions and guidance to the user on how to use the chatbot.
 ## Setup
 1. Clone this repository to your local machine.
 2. Create a virtual environment and activate it:
