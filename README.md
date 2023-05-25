@@ -43,5 +43,31 @@ $ python app.py
 - `index.html`: The HTML template for the chatbot interface.
 - `requirements.txt`: A list of Python dependencies required to run the app (Not all of them required but was running more experiments on my repo).
 - `README.md`: This file.
+
+## Fine-tunning the model with Deepspeed and a dual RTX 6000
+Deepspeed is an optimization library that provides an efficient way to fine-tune large language models (LLMs) like GPT-3 or T-NLG. The primary reasons to use Deepspeed for fine-tuning LLMs include its capability to significantly reduce the computational resources required, and its capacity to handle models that don't fit in a single GPU memory.
+Deepspeed provides ZeRO (Zero Redundancy Optimizer), a memory optimization technology, which allows training models with billions of parameters without running out of memory. This is particularly useful when dealing with LLMs, which often have an enormous number of parameters.
+
+Additionally, Deepspeed allows distributed training across multiple GPUs, which can considerably speed up the process and makes it possible to train much larger models than would be possible on a single GPU.
+
+I have a simple Jupyter notebook. Let's first clone Deepspeed
+```
+$ git clone https://github.com/microsoft/DeepSpeed -b v0.4.0
+$ cd DeepSpeed
+```
+Then install Deepspeed
+```
+$ pip install deepspeed
+```
+If you're going to use DeepSpeed's ZeRO functionality, you should also install NVIDIA's NCCL library, which is used for multi-GPU/multi-node communications.
+Now let's clone the fine tuning repo
+```
+$ git clone https://github.com/Xirider/finetune-gpt2xl
+```
+Access the folder and download the datasets library
+```
+$ cd finetune-gpt2xl
+$ pip install datasets
+```
 ## Acknowledgments
 This project was inspired by the GPT-3 Playground by OpenAI. The GPT-Neo model was trained by EleutherAI.
